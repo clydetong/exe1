@@ -1,0 +1,130 @@
+﻿@model 面試1.Models.Orders
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>訂單ID: @Model.OrderID</h2>
+
+<h3>確定刪除？</h3>
+<div>
+    <h4>訂單資訊</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequiredDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequiredDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShippedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShippedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Freight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Freight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipRegion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipRegion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipPostalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipPostalCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipCountry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipCountry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customers.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customers.CompanyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employees.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employees.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shippers.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shippers.CompanyName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("DeleteBegin", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    @Html.Hidden("id", Model.OrderID)
+    <input type="submit" value="刪除" class="btn btn-default" /> |
+    @Html.ActionLink("返回", "List")
+</div>
+    }
+</div>
