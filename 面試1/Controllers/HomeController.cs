@@ -29,7 +29,7 @@ namespace 面試1.Controllers
             return View(db.Orders.Where(c => c.OrderID == id).FirstOrDefault());
         }
 
-        public ActionResult DeleteBegin (string id)
+        public ActionResult DeleteBegin(string id)
         {
             int sid = int.Parse(id);
             var db = new NorthwindEntities();
@@ -45,7 +45,9 @@ namespace 面試1.Controllers
 
                     db.SaveChanges();
                     transaction.Commit();
-                } catch (Exception ex) {
+                }
+                catch (Exception ex)
+                {
                     transaction.Rollback();
                     Console.WriteLine("An error occurred: " + ex.Message);
                 }
@@ -54,7 +56,7 @@ namespace 面試1.Controllers
             return RedirectToAction("List");
         }
 
-        public ActionResult Details (int id)
+        public ActionResult Details(int id)
         {
             var db = new NorthwindEntities();
             return View(db.Order_Details.Where(c => c.OrderID == id).FirstOrDefault());
@@ -62,12 +64,15 @@ namespace 面試1.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+            this.ShipVia();
+            var db = new NorthwindEntities();
+            return View(db.Orders.Where(c => c.OrderID == id).FirstOrDefault());
         }
 
         public ActionResult EditDetail(int id)
         {
-            return View();
+            var db = new NorthwindEntities();
+            return View(db.Order_Details.Where(c => c.OrderID == id).FirstOrDefault());
         }
 
         public ActionResult About()
@@ -82,6 +87,25 @@ namespace 面試1.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public void ShipVia()
+        {
+            NorthwindEntities db = new NorthwindEntities();
+
+            var ShipViaList = db.Orders
+                    .GroupBy(o => o.ShipVia)
+                    .Select(g => g.Key)
+                    .ToList();
+
+            List< SelectListItem > items = new List<SelectListItem> ();
+
+            foreach (var item in ShipViaList)
+            {
+                items.Add(new SelectListItem { Text = item.ToString(), Value = item.ToString() });
+            }
+
+            ViewBag.ShipVia = items;
         }
     }
 }
