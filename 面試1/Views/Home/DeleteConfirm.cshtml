@@ -20,22 +20,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.RequiredDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RequiredDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ShippedDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ShippedDate)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Freight)
         </dt>
 
@@ -124,7 +108,7 @@
 <div class="form-actions no-color">
     @Html.Hidden("id", Model.OrderID)
     <input type="submit" value="刪除" class="btn btn-default" /> |
-    @Html.ActionLink("返回", "List")
+    @Html.ActionLink("返回", "Index")
 </div>
     }
 </div>

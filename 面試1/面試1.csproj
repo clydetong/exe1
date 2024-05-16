@@ -236,11 +236,10 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Read.cshtml" />
-    <Content Include="Views\Home\List.cshtml" />
     <Content Include="Views\Home\DeleteConfirm.cshtml" />
-    <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\EditDetail.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

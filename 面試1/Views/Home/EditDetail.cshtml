@@ -4,10 +4,10 @@
     ViewBag.Title = "EditDetail";
 }
 
-<h2>EditDetail</h2>
+<h2>訂單詳細</h2>
 
 
-@using (Html.BeginForm("EditDetail", "Home", FormMethod.Post))
+@using (Html.BeginForm("SaveDetail", "Home", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     
@@ -45,15 +45,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                @Html.Hidden("id", Model.OrderID)
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="儲存" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("返回", "Index")
 </div>
 
 @section Scripts {
